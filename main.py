@@ -4,7 +4,14 @@ from graphic_arts.start_game_banner import run_screensaver
 
 
 def attack(char_name: str, char_class: str) -> str:
+    '''Simulate of attack action with random damage.
 
+            Parameters:
+                    char_name (str): name of player
+                    char_class (str): type of player (warrior or mage or healer)
+
+            Returns:
+                    f-string: description of damage which player do enemy.'''
     if char_class == 'warrior':
         return f'{char_name} нанёс урон противнику равный {5 + randint(3,5)}'
     if char_class == 'mage':
@@ -15,7 +22,14 @@ def attack(char_name: str, char_class: str) -> str:
 
 
 def defence(char_name: str, char_class: str) -> str:
+    '''Simulate of random defence action.
 
+            Parameters:
+                    char_name (str): name of player
+                    char_class (str): type of player (warrior or mage or healer)
+
+            Returns:
+                    f-string: how many points of damage player just now blocked.'''
     if char_class == 'warrior':
         return (f'{char_name} блокировал {10 + randint(5, 10)} урона')
     if char_class == 'mage':
@@ -26,7 +40,14 @@ def defence(char_name: str, char_class: str) -> str:
 
 
 def special(char_name: str, char_class: str) -> str:
+    '''Simulation of using a player's special skill.
 
+            Parameters:
+                    char_name (str): name of player
+                    char_class (str): type of player (warrior or mage or healer)
+
+            Returns:
+                    f-string: result of using a player's special skill.'''
     if char_class == 'warrior':
         return (f'{char_name} применил специальное умение '
                 '«Выносливость {80+25}»')
@@ -38,7 +59,15 @@ def special(char_name: str, char_class: str) -> str:
 
 
 def start_training(char_name: str, char_class: str) -> str:
+    '''The function requests and executes the commands of the player in an loop
+       until get command 'skip'.
 
+            Parameters:
+                    char_name (str): name of player
+                    char_class (str): type of player (warrior or mage or healer)
+
+            Returns:
+                    string: print results of commands or finish of traning.'''
     if char_class == 'warrior':
         print(f'{char_name}, ты Воитель — отличный боец ближнего боя.')
     if char_class == 'mage':
@@ -63,7 +92,10 @@ def start_training(char_name: str, char_class: str) -> str:
 
 
 def choice_char_class() -> str:
+    '''The function request class of the player.
 
+            Returns:
+                string: type of player (warrior or mage or healer).'''
     approve_choice: str = None
     char_class: str = None
     while approve_choice != 'y':
@@ -96,3 +128,5 @@ if __name__ == '__main__':
     print('Воитель, Маг, Лекарь')
     char_class: str = choice_char_class()
     print(start_training(char_name, char_class))
+
+    print(print.__doc__)
